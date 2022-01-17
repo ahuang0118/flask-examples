@@ -16,7 +16,8 @@ In this example, we are going to look at creating, serving, and deploying a *ver
 
 At the command line: 
 
-export FLASK_ENV=development; flask run
+export FLASK_ENV=development; flask run (for Mac)
+set FLASK_ENV=development & flask run (for PC)
 
 # Deployment
 
@@ -45,7 +46,7 @@ This set of lecture notes is based in part on previous materials developed by [E
 from flask import Flask, render_template, request
 app = Flask(__name__)
 
-@app.route("/")
+# @app.route("/")
 # simplest possible approach
 # def main():
 #     return "hi there!"
@@ -57,7 +58,7 @@ app = Flask(__name__)
 
 # A little fancier
 
-# @app.route("/")
+@app.route("/")
 def main():
     return render_template("main_better.html")
 
@@ -72,7 +73,7 @@ def ask():
         except:
             return render_template('ask.html')
 
-# 
+
 @app.route('/profile/<name>/')
 def hello_name(name):
     return render_template('profile.html', name=name)
